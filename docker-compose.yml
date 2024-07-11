@@ -1,0 +1,22 @@
+version: '3.9'
+
+services:
+  website:
+    image: ghcr.io/${GITHUB_REPOSITORY}:main
+    container_name: website-container
+    ports:
+      - '8083:80'
+    restart: unless-stopped
+
+  # apache-server:
+  #   image: 'httpd:2.4'
+  #   container_name: apache-server
+  #   ports:
+  #     - '8081:80'
+  #   volumes:
+  #     - '/home/user/website:/usr/local/apache2/htdocs'
+  #   restart: unless-stopped
+
+networks:
+  default:
+    name: website_network
